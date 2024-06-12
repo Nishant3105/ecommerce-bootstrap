@@ -28,8 +28,8 @@ const productsArr = [
 
 
 const Products = () => {
-    const Products = productsArr.map((product) => (
-        <Col sm={6} className='mb-3'>
+    const Products = productsArr.map((product,index) => (
+        <Col sm={6} className='mb-3' key={index}>
             <Card style={{ width: '18rem', textAlign: 'center' }}>
                 <Card.Title>{product.title}</Card.Title>
                 <Card.Body>
@@ -44,7 +44,7 @@ const Products = () => {
     ))
     return (
         <>
-            <Row className='bg-color-secondary'>
+            <Row className='bg-color-secondary' style={{zIndex:'20'}}>
                 {Products}
             </Row>
         </>

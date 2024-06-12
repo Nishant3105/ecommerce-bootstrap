@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-const MainNavigation = () => {
+const MainNavigation = (props) => {
     return (
         <Navbar expand="sm" bg="dark" data-bs-theme="dark">
             <Container>
@@ -19,8 +19,8 @@ const MainNavigation = () => {
                         <Nav.Link eventKey="link-2">About</Nav.Link>
                     </Nav.Item>
                 </Nav>
-                <button type="button" class="btn btn-primary position-relative">
-                    Cart <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-secondary">+99 <span class="visually-hidden">unread messages</span></span>
+                <button type="button" className="btn btn-primary position-relative" onClick={props.onClick}>
+                    Cart <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-secondary">+99 <span className="visually-hidden">unread messages</span></span>
                 </button>
             </Container>
         </Navbar>
