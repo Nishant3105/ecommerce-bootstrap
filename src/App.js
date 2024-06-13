@@ -1,14 +1,21 @@
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import Footer from './component/Footer';
-import Headers from './component/Header';
 import Products from './pages/Products';
+import Home from './pages/Home';
+import About from './pages/About';
+import RootLayout from './pages/Root';
 
 function App() {
   return (
-    <>
-      <Headers/>
-      <Products/>
-      <Footer/>
+    <> 
+      <RootLayout>
+        <Switch>
+        <Route path="/" exact><Home/></Route>
+        <Route path="/home"><Home/></Route>
+        <Route path="/about" ><About/></Route>
+        <Route path="/productlist"><Products/></Route>
+        </Switch>
+      </RootLayout>
     </>
   );
 }

@@ -3,6 +3,8 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import CartContext from '../Context/CartContext';
+import { Link } from 'react-router-dom';
+
 
 const MainNavigation = (props) => {
     const cartCtx=useContext(CartContext)
@@ -10,16 +12,16 @@ const MainNavigation = (props) => {
     return (
         <Navbar expand="sm" bg="dark" data-bs-theme="dark">
             <Container>
-                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                <Navbar.Brand>React-Bootstrap</Navbar.Brand>
                 <Nav className="justify-content-center" defaultActiveKey="/home" as="ul">
                     <Nav.Item as="li">
-                        <Nav.Link href="/home">Home</Nav.Link>
+                        <Nav.Link as={Link} to="/home">Home</Nav.Link>
                     </Nav.Item>
                     <Nav.Item as="li">
-                        <Nav.Link eventKey="link-1">Products</Nav.Link>
+                        <Nav.Link as={Link} to="/productlist">Products</Nav.Link>
                     </Nav.Item>
                     <Nav.Item as="li">
-                        <Nav.Link eventKey="link-2">About</Nav.Link>
+                        <Nav.Link as={Link} to="/about">About</Nav.Link>
                     </Nav.Item>
                 </Nav>
                 <button type="button" className="btn btn-primary position-relative" onClick={props.onClick}>
