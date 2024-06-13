@@ -23,6 +23,9 @@ const MainNavigation = (props) => {
                     <Nav.Item as="li">
                         <Nav.Link as={Link} to="/about">About</Nav.Link>
                     </Nav.Item>
+                    <Nav.Item as="li">
+                        <Nav.Link as={Link} to="/contactus">Contact Us</Nav.Link>
+                    </Nav.Item>
                 </Nav>
                 <button type="button" className="btn btn-primary position-relative" onClick={props.onClick}>
                     Cart <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-secondary">{noOfCartItems} <span className="visually-hidden">unread messages</span></span>
