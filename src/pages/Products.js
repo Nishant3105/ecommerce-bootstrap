@@ -1,6 +1,7 @@
 import React,{useContext} from 'react'
 import { Col, Row, Button, Card } from 'react-bootstrap'
 import CartContext from '../Context/CartContext';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 // import Button from 'react-bootstrap/Button';
 // import Card from 'react-bootstrap/Card';
 
@@ -30,15 +31,19 @@ const productsArr = [
 
 const Products = () => {
     const cartCtx=useContext(CartContext)
+    const history=useHistory()
+    const productDetailsHandler=(id)=>{
+        history.push(`/productlist/${id}`)
+    }
     const Products = productsArr.map((product,index) => (
         <Col sm={6} className='mb-3' key={index}>
-            <Card style={{ width: '18rem', textAlign: 'center' }}>
+            <Card style={{ width: '18rem', textAlign: 'center' }} onClick={()=>productDetailsHandler(index)}>
                 <Card.Title>{product.title}</Card.Title>
                 <Card.Body>
                     <Card.Img variant="top" src={product.imageUrl} />
                     <Card.Text>
                         ${product.price}
-                        <Button variant="primary" onClick={()=>cartCtx.addToCart({...product,id:index})}>Add To Cart</Button>
+                        <Button variant="primary" onClick={(e)=>{cartCtx.addToCart({...product,id:index});e.stopPropagation()}}>Add To Cart</Button>
                     </Card.Text>
                 </Card.Body>
             </Card>
