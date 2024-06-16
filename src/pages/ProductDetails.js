@@ -1,8 +1,4 @@
 import React, { useState } from 'react'
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-import Image from 'react-bootstrap/Image';
-import Row from 'react-bootstrap/Row';
 import { useParams } from 'react-router-dom'
 import MagnifyingGlass from '../Store/Magnifier';
 
@@ -18,19 +14,19 @@ const productDetails = [
     },
     {
         id: 1,
-        images: ["prod1.jpg", "prod1.jpg", "prod1.jpg"],
+        images: ["https://drawingblog.mycoloringland.com/wp-content/uploads/2016/07/tertiary-color-wheel.jpg", 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png'],
         title: 'Black and white Colors',
         reviews: ["Quel ô pontife cette un faite ", "I and for respiterespite thy, when a this sat"]
     },
     {
         id: 2,
-        images: ["prod2.jpg"],
+        images: ["https://drawingblog.mycoloringland.com/wp-content/uploads/2016/07/tertiary-color-wheel.jpg", 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png'],
         title: 'Yellow and Black Colors',
         reviews: ["Meg szenvednem ha egymást szegezd érte, kincs ", "cette un faite ronge termine la et. Ou "]
     },
     {
         id: 3,
-        images: ["prod3.jpg", "prod3.jpg", "prod3.jpg", "prod3.jpg"],
+        images: ["https://drawingblog.mycoloringland.com/wp-content/uploads/2016/07/tertiary-color-wheel.jpg", 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png', "https://drawingblog.mycoloringland.com/wp-content/uploads/2016/07/tertiary-color-wheel.jpg", 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png'],
         title: 'Blue Color',
         reviews: ["ha egymást szegezd érte, kincs lásd legutolsó csizmák"]
     },
