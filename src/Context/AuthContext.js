@@ -18,7 +18,9 @@ export const AuthContextProvider = (props) => {
     const [token, setToken] = useState(null)
     const [email, setEmail] = useState(null)
 
-    useEffect(() => { setToken(localStorage.getItem('token')) }, [])
+    useEffect(() => { setToken(localStorage.getItem('token'))
+        setEmail(localStorage.getItem('email'))
+     }, [])
 
     const isLoggedIn = !!token
 

@@ -8,14 +8,14 @@ import { Table } from 'react-bootstrap';
 const Cart = (props) => {
     const cartCtx = useContext(CartContext)
 
-    const totalAmount=cartCtx.cartItems.reduce((acc,cur)=>acc+=cur.quantity*cur.price,0)
+    const totalAmount=cartCtx.cartItems ? cartCtx.cartItems.reduce((acc,cur)=>acc+=cur.quantity*cur.price,0) : 0
 
     const CartProducts = cartCtx.cartItems.map((prod, index) => (
         <tr id={index} key={index}>
             <td>{prod.title}</td>
             <td>{prod.price}</td>
             <td>{prod.quantity}
-                <Button variant="secondary" onClick={()=>cartCtx.removeFromCart(prod.id)} className="m-1">
+                <Button variant="secondary" onClick={()=>cartCtx.removeFromCart(prod._id)} className="m-1">
                     REMOVE
                 </Button>
             </td>
@@ -38,6 +38,7 @@ const Cart = (props) => {
                             </tr>
                         </thead>
                         <tbody>
+                            {cartCtx.cartItems.length===0 && <h1>There is no item in your Cart! Please add ITEMS.</h1>}
                            {CartProducts}
                             <tr>
                                 <td></td>
