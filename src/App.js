@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import Products from './pages/Products';
 import Home from './pages/Home';
@@ -7,8 +7,12 @@ import RootLayout from './pages/Root';
 import ContactUs from './pages/ContactUs';
 import ProductDetails from './pages/ProductDetails';
 import Login from './pages/Login';
+import { useContext } from 'react';
+import AuthContext from './Context/AuthContext';
 
 function App() {
+  const authCtx=useContext(AuthContext)
+  const {isLoggedIn} = authCtx
   return (
     <> 
       <RootLayout>
@@ -16,10 +20,13 @@ function App() {
         <Route path="/" exact><Home/></Route>
         <Route path="/home"><Home/></Route>
         <Route path="/about" ><About/></Route>
-        <Route path="/productlist" exact><Products/></Route>
-        <Route path="/productlist/:id"><ProductDetails/></Route>
+        {!isLoggedIn && <Route path="/productlist" exact><Redirect to="/login"/></Route>}
+        {isLoggedIn && <Route path="/productlist" exact><Products/></Route>}
+        {!isLoggedIn && <Route path="/productlist/:id"><Redirect to="/login"/></Route>}
+        {isLoggedIn && <Route path="/productlist/:id"><ProductDetails/></Route>}
         <Route path="/contactus"><ContactUs/></Route>
-        <Route path="/login"><Login/></Route>
+        {!isLoggedIn && <Route path="/login"><Login/></Route>}
+        {isLoggedIn && <Route path="/login"><Redirect to="home"/></Route>}
         </Switch>
       </RootLayout>
     </>
