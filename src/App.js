@@ -6,7 +6,7 @@ import About from './pages/About';
 import RootLayout from './pages/Root';
 import ContactUs from './pages/ContactUs';
 import ProductDetails from './pages/ProductDetails';
-import MagnifyingGlass from './Store/Magnifier';
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -19,8 +19,8 @@ function App() {
         <Route path="/productlist" exact><Products/></Route>
         <Route path="/productlist/:id"><ProductDetails/></Route>
         <Route path="/contactus"><ContactUs/></Route>
+        <Route path="/login"><Login/></Route>
         </Switch>
-        {/* <MagnifyingGlass src="https://th.bing.com/th/id/OIP.tTfbqaFXessaL8hBJguRNwHaJ4?&rs=1&pid=ImgDetMain" zoomLevel={2} /> */}
       </RootLayout>
     </>
   );
